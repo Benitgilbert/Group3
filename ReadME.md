@@ -1,102 +1,75 @@
-Group 3 
+#  MyDiary API
 
-Reg Numbers:  22247/2023
-              22773/2023
-
-
-
-API Versioning: All routes are prefixed with /api/v1.
-
-Technologies Used
-
-Node.js & Express
-
-MongoDB & Mongoose
-
-JSON Web Token (JWT) for authentication
-
-Bcryptjs for password encryption
-
-Dotenv for environment variables
+# Group 3
+## Reg Numberts : 22247/2023
+##                22773/2023
+ 
+                 
 
 
+## 🛠️ Technologies Used
 
+| Category  | Technology   | Purpose                                        |
+| --------- | ------------ | ---------------------------------------------- |
+| Runtime   | Node.js      | JavaScript runtime built on Chrome's V8 engine |
+| Framework | Express.js   | Fast and lightweight web framework             |
+| Database  | MongoDB      | NoSQL database for user data and diary entries |
+| ODM       | Mongoose     | Schema-based modeling for MongoDB              |
+| Security  | Bcryptjs     | Safely hashes user passwords                   |
+| Auth      | JSONWebToken | Provides stateless authentication              |
 
-----------------------
-
-
-Install dependencies
-
-npm install
+---
 
 
 
+### Environment Variables (.env)
 
+| Variable     | Description               | Example Value          |
+| ------------ | ------------------------- | ---------------------- |
+| `PORT`       | Port for server           | `5000`                 |
+| `MONGO_URI`  | MongoDB connection string | `mongodb+srv://...`    |
+| `JWT_SECRET` | Token signing key         | `super_secret_key_123` |
 
-Run the Server
+---
 
-node server.js
+## 📡 API Endpoints
 
+### 1. Authentication (`/api/v1/auth`)
 
-API Endpoints
+| Method | Endpoint  | Description          | Request Body (JSON)                                                            |
+| ------ | --------- | -------------------- | ------------------------------------------------------------------------------ |
+| POST   | `/signup` | Create a new account | `{ "firstName": "...", "lastName": "...", "email": "...", "password": "..." }` |
+| POST   | `/signin` | Login a user         | `{ "email": "...", "password": "..." }`                                        |
 
-Auth
+---
 
-Method
+### 2. Diary Entries (`/api/v1/entries`)
 
-Endpoint
+**Requires:** `Authorization: Bearer <token>`
 
-Description
+| Method | Endpoint | Description                         | Request Body (JSON)                        |
+| ------ | -------- | ----------------------------------- | ------------------------------------------ |
+| POST   | `/`      | Add a new entry                     | `{ "title": "...", "description": "..." }` |
+| GET    | `/`      | Retrieve all entries (latest first) | N/A                                        |
+| GET    | `/:id`   | Retrieve one entry                  | N/A                                        |
+| PATCH  | `/:id`   | Modify an entry                     | `{ "title": "...", "description": "..." }` |
+| DELETE | `/:id`   | Remove an entry                     | N/A                                        |
 
-POST
+---
 
-/api/v1/auth/signup
+##  Status Codes
 
-Create a new user account
+| Code    | Meaning      | Occurs When                          |
+| ------- | ------------ | ------------------------------------ |
+| **200** | OK           | Successful login, fetch, or update   |
+| **201** | Created      | Signup or entry creation succeeded   |
+| **204** | No Content   | Entry deleted successfully           |
+| **400** | Bad Request  | Invalid data sent                    |
+| **401** | Unauthorized | Invalid token or wrong login details |
+| **404** | Not Found    | User or entry not found              |
+| **409** | Conflict     | Email already registered             |
+| **500** | Server Error | General backend failure              |
 
-POST
+---
 
-/api/v1/auth/signin
-
-Login and receive a JWT token
-
-Entries (Requires Token)
-
-All entry endpoints require Authorization: Bearer <token> header.
-
-Method
-
-Endpoint
-
-Description
-
-POST
-
-/api/v1/entries
-
-Create a new diary entry
-
-GET
-
-/api/v1/entries
-
-Get all entries (Desc order)
-
-GET
-
-/api/v1/entries/:id
-
-Get a specific entry
-
-PATCH
-
-/api/v1/entries/:id
-
-Update an entry
-
-DELETE
-
-/api/v1/entries/:id
-
-Delete an entry
 

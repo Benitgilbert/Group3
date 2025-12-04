@@ -1,8 +1,8 @@
 #  MyDiary API
 
 # Group 3
-## Reg Numberts : 22247/2023
-##                22773/2023
+## Reg Numbers : 22247/2023, 22773/2023
+             
  
                  
 
@@ -22,15 +22,7 @@
 
 
 
-### Environment Variables (.env)
 
-| Variable     | Description               | Example Value          |
-| ------------ | ------------------------- | ---------------------- |
-| `PORT`       | Port for server           | `5000`                 |
-| `MONGO_URI`  | MongoDB connection string | `mongodb+srv://...`    |
-| `JWT_SECRET` | Token signing key         | `super_secret_key_123` |
-
----
 
 ## 📡 API Endpoints
 

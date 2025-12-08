@@ -42,10 +42,10 @@
 | Method | Endpoint | Description                         | Request Body (JSON)                        |
 | ------ | -------- | ----------------------------------- | ------------------------------------------ |
 | POST   | `/`      | Add a new entry                     | `{ "title": "...", "description": "..." }` |
-| GET    | `/`      | Retrieve all entries (latest first) | N/A                                        |
-| GET    | `/:id`   | Retrieve one entry                  | N/A                                        |
+| GET    | `/`      | Retrieve all entries (latest first) |                                            |
+| GET    | `/:id`   | Retrieve one entry                  |                                            |
 | PATCH  | `/:id`   | Modify an entry                     | `{ "title": "...", "description": "..." }` |
-| DELETE | `/:id`   | Remove an entry                     | N/A                                        |
+| DELETE | `/:id`   | Remove an entry                     |                                            |
 
 ---
 
